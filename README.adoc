@@ -1,0 +1,3 @@
+= CSV dict parser
+
+Parses dictionary csv file of specified format (TODO: specification) into JSON objects
