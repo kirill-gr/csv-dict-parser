@@ -1,22 +1,22 @@
+import org.gradle.kotlin.dsl.version
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
     // repeated below
-    val kotlinVersion by extra {"1.1.4-3"}
-    val junitPlatformVersion by extra {"1.0.0-RC3"}
+    val junitPlatformVersion by extra {"1.0.2"}
 
     repositories {
         mavenCentral()
     }
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
         classpath("org.junit.platform:junit-platform-gradle-plugin:$junitPlatformVersion")
     }
 }
 
 plugins {
-    kotlin("jvm")
+    kotlin("jvm") version "1.1.60"
 }
 
 apply {
@@ -28,15 +28,15 @@ repositories {
 }
 
 // repeated above
-val kotlinVersion by extra {"1.1.4-3"}
-val junitPlatformVersion by extra {"1.0.0-RC3"}
-val junitJupiterVersion by extra {"5.0.0-RC3"}
+val junitPlatformVersion by extra {"1.0.2"}
+val junitJupiterVersion by extra {"5.0.2"}
 
 dependencies {
-    compile(kotlin("stdlib-jre8", kotlinVersion))
+    compile(kotlin("stdlib-jre8"))
 
     testCompile("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+    testRuntime("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testRuntime("org.junit.platform:junit-platform-launcher:$junitPlatformVersion")
 }
 
