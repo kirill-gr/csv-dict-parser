@@ -12,6 +12,7 @@ fun main(args: Array<String>) {
 
 fun parseArgs(args: Array<String>): String {
     when (args.size) {
+        0 -> throw IllegalArgumentException("No arguments specified")
         1 -> return args.first()
         else -> throw IllegalArgumentException("Too many arguments")
     }
